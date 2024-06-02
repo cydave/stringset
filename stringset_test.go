@@ -4,6 +4,23 @@ import (
 	"testing"
 )
 
+func TestNew(t *testing.T) {
+	s := New("1")
+	if s.Length() != 1 {
+		t.Fatalf("expected result to contain exactly one element, but got: %d", s.Length())
+	}
+
+	s = New("1", "2", "3")
+	if s.Length() != 3 {
+		t.Fatalf("expected result to contain exactly three elements, but got: %d", s.Length())
+	}
+
+	s = New()
+	if s.Length() != 0 {
+		t.Fatalf("expected result to contain no elements, but got: %d", s.Length())
+	}
+}
+
 func TestUnion(t *testing.T) {
 	a := New("1", "2", "3", "4")
 	b := New("5", "6", "7", "8")
