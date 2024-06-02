@@ -68,7 +68,11 @@ func (s *StringSet) Length() int {
 	return len(s.storage)
 }
 
-func (s *StringSet) ToSlice() []string {
+func (s *StringSet) Empty() bool {
+	return len(s.storage) == 0
+}
+
+func (s *StringSet) Values() []string {
 	ret := make([]string, len(s.storage))
 	i := 0
 	for v := range s.storage {
